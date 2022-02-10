@@ -1,4 +1,4 @@
-<app-card *ngFor="let s of cards;let i=index"  
+<!--<app-card *ngFor="let s of cards;let i=index"  
   [cardData]="s"
   (fromFiglioEvnt)="fromFiglioEvntHandlr($event)" >
 </app-card>
@@ -8,4 +8,10 @@ Lo stato delle carte è il seguente
 
 <ul>
   <li  *ngFor="let s of cards;let i=index" > lo stato della carta numero {{s.cardID}} è {{s.status}} </li>
-</ul>
+</ul>-->
+
+<h1 style="text-align: center;">Gioco del Memory</h1>
+<div>
+  <app-card *ngFor="let s of cards; let i = index" [cardData]="s" (fromFiglioEvnt)="fromFiglioEvntHandlr($event)">
+  </app-card>
+</div>
