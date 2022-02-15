@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  cards:{ cardID: number , status:string , path:string, nImm:number, check:boolean }[];
-  posizioni:{ n:number, volte:number}[];
+  cards:{ cardID: number , status:string , path:string, nImm:number, check:boolean }[] = [];
+  posizioni:{ n:number, volte:number}[] = [];
   carta1:number;
   carta2:number;
   punteggio:number;
@@ -15,17 +15,16 @@ export class AppComponent implements OnInit {
   mostra:string;
 
   ngOnInit(): void {
-    this.cards = this.posizioni = [];
     this.carta1 = this.carta2 = -1;
     this.punteggio = 0;
     this.click = true;
     this.mostra = "hidden";
-    for (var i = 0; i < 10; i++) this.posizioni.push({n:i, volte:0});
+    for (var i = 0; i < 10; i++) {this.posizioni.push({n:i, volte:0});}
     for (var i = 0; i < 20; i++) {
-      var x = 0;
-      do {
-        x = Math.floor(Math.random() * 10); //da 0 a 9
-      } while (this.posizioni[x].volte == 2);
+      var x = Math.floor(Math.random() * 10); //da 0 a 9
+      while (this.posizioni[x].volte == 2) {
+        x = Math.floor(Math.random() * 10);
+      }
       this.posizioni[x].volte++;
       this.cards.push({
         cardID: i, status:'default', path:'./assets/images/default.png', nImm: x, check:false
