@@ -12,13 +12,13 @@ export class AppComponent implements OnInit {
   carta2:number;
   punteggio:number;
   click:boolean;
-  mostra:string;
+  mostra:boolean;
 
   ngOnInit(): void {
     this.carta1 = this.carta2 = -1;
     this.punteggio = 0;
     this.click = true;
-    this.mostra = "hidden";
+    this.mostra = true;
     for (var i = 0; i < 10; i++) {this.posizioni.push({n:i, volte:0});}
     for (var i = 0; i < 20; i++) {
       var x = Math.floor(Math.random() * 10); //da 0 a 9
@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
   }
 
   fromFiglioEvntHandlr( evntData: { cardID: number , status:string , path:string, check:boolean } ){
+    this.mostra = false;
     if (!evntData.check && this.click) {
       if (this.cards[evntData.cardID].status=='default') {
         this.cards[evntData.cardID].status='flipped'
@@ -65,6 +66,7 @@ export class AppComponent implements OnInit {
         }
       }
     }
+    console.log(this.mostra);
   }
 
   controllo() {

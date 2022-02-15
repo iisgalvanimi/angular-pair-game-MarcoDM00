@@ -1,9 +1,11 @@
 #points {
     position: fixed;
-    bottom: 0;
+    top: 0;
     right: 0;
-    width: 8%;
-    min-width: 80px;
+    font-size: 25px;
+    width: 15%;
+    min-width: 120px;
     background-color: red;
     border: 3px solid black;
+    margin: 0;
 }
