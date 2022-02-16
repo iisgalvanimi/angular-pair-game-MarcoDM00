@@ -1,3 +1,4 @@
+import { computeDecimalDigest } from '@angular/compiler/src/i18n/digest';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -80,7 +81,7 @@ export class AppComponent implements OnInit {
     });
     if (vinto) {
       clearInterval(this.timer);
-      this.mostra = true;
+      setTimeout(() => this.mostra = true, 1000);
     }
   }
 
@@ -102,5 +103,17 @@ export class AppComponent implements OnInit {
     }
     this.tempo = 0;
     this.timer = setInterval(() => this.tempo++, 1000);
+  }
+
+  tasti(event: KeyboardEvent) {
+    if (event.code === "Space") {
+      this.cards.forEach(x => {
+        if (x.nImm != this.cards[19].nImm) {
+          x.check = true;
+          x.path = './assets/images/' + x.nImm + '.jpg'
+        }
+      });
+      this.controllo();
+    }
   }
 }

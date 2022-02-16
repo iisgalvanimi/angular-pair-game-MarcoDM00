@@ -1,13 +1,17 @@
-<h1 style="text-align: center;">Gioco del Memory</h1>
-<div [hidden]="mostra">
-  <app-card *ngFor="let s of cards;" [cardData]="s" (fromFiglioEvnt)="fromFiglioEvntHandlr($event)">
-  </app-card>
-</div>
+ <body (keypress)="tasti($event)">
+  <h1 style="text-align: center;">Gioco del Memory</h1>
+  <div [hidden]="mostra">
+    <app-card *ngFor="let s of cards;" [cardData]="s" (fromFiglioEvnt)="fromFiglioEvntHandlr($event)">
+    </app-card>
+  </div>
 
-<p id="points" [hidden]="mostra">Punteggio: {{punteggio}}</p>
+  <p id="points" [hidden]="mostra">Punteggio: {{punteggio}}</p>
 
-<div [hidden]="!mostra">
-  <h1>Punteggio: <b>{{punteggio}}</b></h1>
-  <h1>Tempo: <b>{{tempo}}</b> secondi</h1>
-  <button (click)="reset()">Reset</button>
-</div>
+  <div [hidden]="!mostra">
+    <h1>Punteggio: <b>{{punteggio}}</b></h1>
+    <h1>Tempo: <b>{{tempo}}</b> secondi</h1>
+    <button (click)="reset()">Reset</button>
+  </div>
+
+  <button class="btn">.</button>
+</body>
