@@ -16,12 +16,14 @@ export class AppComponent implements OnInit {
   mostra:boolean;
   timer;
   tempo:number;
+  code:string;
 
   ngOnInit(): void {
     this.carta1 = this.carta2 = -1;
     this.punteggio = 0;
     this.click = true;
     this.mostra = false;
+    this.code = "";
     for (var i = 0; i < 10; i++) {this.posizioni.push({n:i, volte:0});}
     for (var i = 0; i < 20; i++) {
       var x = Math.floor(Math.random() * 10); //da 0 a 9
@@ -90,6 +92,7 @@ export class AppComponent implements OnInit {
     this.punteggio = 0;
     this.click = true;
     this.mostra = false;
+    this.code = "";
     for (var i = 0; i < 10; i++) this.posizioni[i] = {n:i, volte:0};
     for (var i = 0; i <20; i++) {
       var x = Math.floor(Math.random() * 10); //da 0 a 9
@@ -107,7 +110,8 @@ export class AppComponent implements OnInit {
 
   tasti(event: KeyboardEvent) {
     if (!this.mostra) {
-      if (event.code === "Space") {
+      if (event.key != "p") {this.code += event.key} else {this.code = ""}
+      if (this.code == "magia") {
         this.cards.forEach(x => {
           if (x.nImm != this.cards[19].nImm) {
             x.check = true;
