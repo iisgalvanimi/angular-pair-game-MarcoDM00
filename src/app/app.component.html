@@ -6,6 +6,8 @@
 
 <p id="points">Punteggio: {{punteggio}}</p>
 
-<div ng-show="mostra">
-  <h1>Ciaoskodko</h1>
+<div class="finale" [hidden]="!mostra">
+  <h1>Punteggio: <b>{{punteggio}}</b></h1>
+  <h1>Tempo: <b>{{tempo}}</b> secondi</h1>
+  <button (click)="reset()">Reset</button>
 </div>
