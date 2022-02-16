@@ -1,12 +1,12 @@
 <h1 style="text-align: center;">Gioco del Memory</h1>
-<div>
+<div [hidden]="mostra">
   <app-card *ngFor="let s of cards;" [cardData]="s" (fromFiglioEvnt)="fromFiglioEvntHandlr($event)">
   </app-card>
 </div>
 
-<p id="points">Punteggio: {{punteggio}}</p>
+<p id="points" [hidden]="mostra">Punteggio: {{punteggio}}</p>
 
-<div class="finale" [hidden]="!mostra">
+<div [hidden]="!mostra">
   <h1>Punteggio: <b>{{punteggio}}</b></h1>
   <h1>Tempo: <b>{{tempo}}</b> secondi</h1>
   <button (click)="reset()">Reset</button>

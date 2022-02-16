@@ -21,11 +21,11 @@ export class AppComponent implements OnInit {
     this.punteggio = 0;
     this.click = true;
     this.mostra = false;
-    for (var i = 0; i < 2; i++) {this.posizioni.push({n:i, volte:0});}
-    for (var i = 0; i < 4; i++) {
-      var x = Math.floor(Math.random() * 2); //da 0 a 9
+    for (var i = 0; i < 10; i++) {this.posizioni.push({n:i, volte:0});}
+    for (var i = 0; i < 20; i++) {
+      var x = Math.floor(Math.random() * 10); //da 0 a 9
       while (this.posizioni[x].volte == 2) {
-        x = Math.floor(Math.random() * 2);
+        x = Math.floor(Math.random() * 10);
       }
       this.posizioni[x].volte++;
       this.cards.push({
@@ -89,11 +89,11 @@ export class AppComponent implements OnInit {
     this.punteggio = 0;
     this.click = true;
     this.mostra = false;
-    for (var i = 0; i < 2; i++) {this.posizioni[i] = {n:i, volte:0};}
-    for (var i = 0; i < 4; i++) {
-      var x = Math.floor(Math.random() * 2); //da 0 a 9
+    for (var i = 0; i < 10; i++) {this.posizioni[i] = {n:i, volte:0};}
+    for (var i = 0; i <20; i++) {
+      var x = Math.floor(Math.random() * 10); //da 0 a 9
       while (this.posizioni[x].volte == 2) {
-        x = Math.floor(Math.random() * 2);
+        x = Math.floor(Math.random() * 10);
       }
       this.posizioni[x].volte++;
       this.cards[i] = {
