@@ -90,7 +90,7 @@ export class AppComponent implements OnInit {
     this.punteggio = 0;
     this.click = true;
     this.mostra = false;
-    for (var i = 0; i < 10; i++) {this.posizioni[i] = {n:i, volte:0};}
+    for (var i = 0; i < 10; i++) this.posizioni[i] = {n:i, volte:0};
     for (var i = 0; i <20; i++) {
       var x = Math.floor(Math.random() * 10); //da 0 a 9
       while (this.posizioni[x].volte == 2) {
@@ -106,14 +106,18 @@ export class AppComponent implements OnInit {
   }
 
   tasti(event: KeyboardEvent) {
-    if (event.code === "Space") {
-      this.cards.forEach(x => {
-        if (x.nImm != this.cards[19].nImm) {
-          x.check = true;
-          x.path = './assets/images/' + x.nImm + '.jpg'
-        }
-      });
-      this.controllo();
+    if (!this.mostra) {
+      if (event.code === "Space") {
+        this.cards.forEach(x => {
+          if (x.nImm != this.cards[19].nImm) {
+            x.check = true;
+            x.path = './assets/images/' + x.nImm + '.jpg'
+          }
+        });
+        this.punteggio = 9;
+        this.carta1 = this.carta2 = -1;
+        this.controllo();
+      }
     }
   }
 }
